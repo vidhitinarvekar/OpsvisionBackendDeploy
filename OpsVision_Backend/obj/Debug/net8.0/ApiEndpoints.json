@@ -1,0 +1,234 @@
+[
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.AuthController",
+    "Method": "AzureLogin",
+    "RelativePath": "api/Auth/azure-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Model.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteController",
+    "Method": "GetProjects",
+    "RelativePath": "api/ProjectFte/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteController",
+    "Method": "AllocateFte",
+    "RelativePath": "api/ProjectFte/allocate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Model.DTO.ProjectFteAllocationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteController",
+    "Method": "Delete",
+    "RelativePath": "api/ProjectFte/delete/{projectId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteController",
+    "Method": "UpdateFte",
+    "RelativePath": "api/ProjectFte/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Model.DTO.ProjectFteAllocationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteEmployeeController",
+    "Method": "GetAssignedEmployees",
+    "RelativePath": "api/ProjectFteEmployee/{projectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteEmployeeController",
+    "Method": "AllocateFte",
+    "RelativePath": "api/ProjectFteEmployee/allocate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Model.DTO.ProjectFteEmployeeAssignmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteEmployeeController",
+    "Method": "DeleteFteAllocation",
+    "RelativePath": "api/ProjectFteEmployee/delete/{projectId}/{staffId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "staffId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteEmployeeController",
+    "Method": "SearchEmployees",
+    "RelativePath": "api/ProjectFteEmployee/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.ProjectFteEmployeeController",
+    "Method": "UpdateFte",
+    "RelativePath": "api/ProjectFteEmployee/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Model.DTO.ProjectFteEmployeeAssignmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagementController.Controllers.ProjectManagementController",
+    "Method": "StoreCommittedHours",
+    "RelativePath": "api/ProjectManagement/store-committed-hours",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Model.DTO.CommittedHoursRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagementController.Controllers.ProjectManagementController",
+    "Method": "UpdateCommittedHours",
+    "RelativePath": "api/ProjectManagement/update-committed-hours",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Model.DTO.CommittedHoursRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagementController.Controllers.ProjectManagementController",
+    "Method": "GetUserProjects",
+    "RelativePath": "api/ProjectManagement/user-projects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[OpsVision_Backend.WeatherForecast, OpsVision_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

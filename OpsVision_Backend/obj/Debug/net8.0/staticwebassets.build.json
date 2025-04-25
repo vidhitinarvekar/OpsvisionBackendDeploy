@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "tL25ndc0c02ioCCQdxd1bTNtaZW9WwvPbKFogv/QDFM=",
+  "Source": "OpsVision_Backend",
+  "BasePath": "_content/OpsVision_Backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
