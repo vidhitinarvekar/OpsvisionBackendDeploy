@@ -6,23 +6,22 @@ namespace OpsVision_Backend.Services.Auth
     public static class LdapHelper
     {
         private const string LdapPath = "LDAP://prd.integrator-orange.com";
-        private static readonly bool UseMock = true; // Set to false for production
+        //private static readonly bool UseMock = true; // Set to false for production
 
         public static bool ValidateUser(string username, string password)
         {
-            if (UseMock)
-            {
-                // Fake success only if username == password (or any condition you want)
-                return username == password;
-            }
+           
             try
             {
-                using var entry = new DirectoryEntry(LdapPath, username, password);
+                Console.WriteLine($"Attempting bind for: {username}");
+                using var entry = new DirectoryEntry("LDAP://prd.integrator-orange.com", username, password);
                 var native = entry.NativeObject; // Will throw if invalid
+                Console.WriteLine("LDAP bind successfull");
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"LDAP bind failed: {ex.Message}");
                 return false;
             }
         }

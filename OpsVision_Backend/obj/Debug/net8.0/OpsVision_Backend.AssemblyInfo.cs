@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OpsVision_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c53ed4124ed3852fc7cd14c5a653e6ab0835916b")]
 [assembly: System.Reflection.AssemblyProductAttribute("OpsVision_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OpsVision_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

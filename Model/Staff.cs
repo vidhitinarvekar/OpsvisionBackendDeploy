@@ -22,7 +22,7 @@ namespace Model
         public int StaffId  { get; set; }
 
         public int? StaffNumber { get; set; }
-        [MaxLength(15)]
+        [MaxLength(50)]
         public string? CUID { get; set; }
 
 

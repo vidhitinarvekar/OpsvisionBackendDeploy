@@ -11,22 +11,22 @@ using OpsVision_Backend.Services;
 using OpsVision_Backend.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Cryptography.X509Certificates;
+//using System.Security.Cryptography.X509Certificates;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Kestrel to listen on port 443
-builder.WebHost.ConfigureKestrel(options =>
-{
-    var certPath = "C:\\certs\\OpsVisionDevCert.pfx";
-    var certPassword = "StrongPasswordForOpsvisionProject@123";
-    var cert = new X509Certificate2(certPath, certPassword);
-    options.ListenAnyIP(443, listenOptions =>
-    {
-        listenOptions.UseHttps();  // Ensure HTTPS is used on port 443 // inside bracket mention ssl certificate 
-    });
-});
+//builder.WebHost.ConfigureKestrel(options =>
+//{
+//    var certPath = "C:\\certs\\OpsVisionDevCert.pfx";
+//    var certPassword = "StrongPasswordForOpsvisionProject@123";
+//    var cert = new X509Certificate2(certPath, certPassword);
+//    options.ListenAnyIP(443, listenOptions =>
+//    {
+//        listenOptions.UseHttps();  // Ensure HTTPS is used on port 443 // inside bracket mention ssl certificate 
+//    });
+//});
 
 builder.Services.AddDbContext<FteDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),

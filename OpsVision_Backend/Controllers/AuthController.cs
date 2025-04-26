@@ -26,6 +26,79 @@ namespace OpsVision_Backend.Controllers
             _jwtService = jwtService;
         }
 
+        // 🔐 Auto-login based on Windows Auth header
+
+        [HttpGet("identity")]
+
+        public async Task<IActionResult> GetIdentity()
+
+        {
+
+            var remoteUser = Request.Headers["x-remote-user"].FirstOrDefault();
+
+            if (string.IsNullOrEmpty(remoteUser))
+
+                return Unauthorized("User not found in header");
+
+            var username = remoteUser.Contains("\\") ? remoteUser.Split('\\')[1] : remoteUser;
+
+            var adUser = LdapHelper.GetUserDetails(username);
+
+            var staff = await _context.Staff.FirstOrDefaultAsync(s => s.Email == adUser.Email);
+
+            if (staff == null)
+
+            {
+
+                staff = new Staff
+
+                {
+
+                    FirstName = adUser.FullName?.Split(' ')[0],
+
+                    LastName = adUser.FullName?.Split(' ').Length > 1 ? adUser.FullName?.Split(' ')[1] : "",
+
+                    Email = adUser.Email,
+
+                    CUID = username,
+
+                    IsLdapUser = true
+
+                };
+
+                _context.Staff.Add(staff);
+
+                await _context.SaveChangesAsync();
+
+            }
+
+            var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Email == adUser.Email);
+
+            var role = user?.Role?.RoleName ?? "Employee";
+
+            var token = _jwtService.GenerateToken(staff, role);
+
+            return Ok(new LoginResponse
+
+            {
+
+                StaffId = staff.StaffId,
+
+                Name = adUser.FullName,
+
+                Email = adUser.Email,
+
+                Role = role,
+
+                Token = token,
+
+                CUID = username
+
+            });
+
+        }
+
+
         // Local DB Login
         [HttpPost("login")]
         [AllowAnonymous]

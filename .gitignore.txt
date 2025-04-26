@@ -1,0 +1,34 @@
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Ignore build results
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+
+# Ignore logs
+*.log
+
+# Ignore published files
+publish/
+
+# Ignore user-specific files
+*.swp
+*.bak
+
+# Ignore NuGet package-related
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore Web config in bin folder
+bin/**/*.config
+
+# Others
+*.db
+*.sourcelink.json

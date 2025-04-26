@@ -11,6 +11,16 @@
   },
   {
     "ContainingType": "OpsVision_Backend.Controllers.AuthController",
+    "Method": "GetIdentity",
+    "RelativePath": "api/Auth/identity",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OpsVision_Backend.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",

@@ -467,8 +467,8 @@ namespace OpsVision_Backend.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("StaffId"));
 
                     b.Property<string>("CUID")
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
@@ -484,6 +484,9 @@ namespace OpsVision_Backend.Migrations
                         .IsRequired()
                         .HasMaxLength(35)
                         .HasColumnType("varchar(35)");
+
+                    b.Property<bool>("IsLdapUser")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsShiftWorker")
                         .HasColumnType("tinyint(1)");

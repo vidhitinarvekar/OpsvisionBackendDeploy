@@ -4,6 +4,7 @@ using OpsVision_Backend.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+
 namespace OpsVision_Backend.Services
 {
     public class JwtTokenService : IJwtTokenService
@@ -26,12 +27,21 @@ namespace OpsVision_Backend.Services
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            // Null-safe values
+            var staffId = staff?.StaffId.ToString() ?? "unknown";
+            var email = string.IsNullOrWhiteSpace(staff?.Email) ? "noemail@fallback.com" : staff.Email;
+            var firstName = string.IsNullOrWhiteSpace(staff?.FirstName) ? "Unknown" : staff.FirstName;
+            var lastName = string.IsNullOrWhiteSpace(staff?.LastName) ? "User" : staff.LastName;
+            var fullName = $"{firstName} {lastName}";
+            var safeRole = string.IsNullOrWhiteSpace(role) ? "User" : role;
+
+            // Claims that are guaranteed non-null
             var claims = new[]
             {
-                new Claim("staffId", staff.StaffId.ToString()),
-                new Claim(ClaimTypes.Email, staff.Email),
-                new Claim(ClaimTypes.Name, $"{staff.FirstName} {staff.LastName}"),
-                new Claim(ClaimTypes.Role, role)
+                new Claim("staffId", staffId),
+                new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.Name, fullName),
+                new Claim(ClaimTypes.Role, safeRole)
             };
 
             var token = new JwtSecurityToken(
